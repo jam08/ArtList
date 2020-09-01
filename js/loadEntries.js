@@ -1,7 +1,6 @@
 (function () {
 
   const sq = es.newSolrQuery().rdfType("http://example.com/PieceOfArt").context('1').list();
-  // const sql = sq.list();
   sq.getEntries().then(entries => {
     const data ={
       title: "http://purl.org/dc/terms/title",

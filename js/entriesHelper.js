@@ -5,22 +5,11 @@ function createCard(data, pElement) {
 
   const titleHeader = document.createElement('h2');
   titleHeader.setAttribute('class', 'title');
-  const titleText = document.createTextNode(data.title);
+  titleHeader.textContent = data.title;
 
-  titleHeader.appendChild(titleText);
-
-  let fullName = "";
-  if(data.familyName && data.givenName) {
-    fullName = `${data.givenName} ${data.familyName}`;
-  } else if(!data.familyName) {
-    fullName = data.givenName;
-  } else {  
-    fullName = data.familyName;
-  }
 
   const subtitle = document.createElement('p');
-  const subtitleText = document.createTextNode(`by ${fullName}`);
-  subtitle.appendChild(subtitleText);
+  subtitle.textContent = `by ${data.givenName || ""} ${data.familyName || ""}`;
 
   container.appendChild(titleHeader);
   container.appendChild(subtitle);
@@ -31,9 +20,7 @@ function createCard(data, pElement) {
 
   const cardDesc = document.createElement('div');
   const desc = document.createElement('p');
-  const descText = document.createTextNode(data.description); 
-  
-  desc.appendChild(descText);
+  desc.textContent = data.description;
 
   header.appendChild(container);
   header.appendChild(imgSrc);
